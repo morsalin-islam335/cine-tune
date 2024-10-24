@@ -1,5 +1,5 @@
 import { getAllMovies } from "../data/movies";
-
+import { getImageUrl } from "../utils/cine-utils";
 export default function MovieList() {
   const allMovies = getAllMovies();
 
@@ -8,10 +8,14 @@ export default function MovieList() {
       key={movie.id}
       className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl"
     >
-      <img className="w-full object-cover" src="./assets/movie-1.png" alt="" />
+      <img
+        className="w-full object-cover"
+        src={getImageUrl(movie.cover)}
+        alt=""
+      />
       <figcaption className="pt-4">
-        <h3 className="text-xl mb-1">Iron Man</h3>
-        <p className="text-[#575A6E] text-sm mb-2">Action/Adventure/Sci-fi</p>
+        <h3 className="text-xl mb-1">{movie.title}</h3>
+        <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
         <div className="flex items-center space-x-1 mb-5">
           <img src="./assets/star.svg" width="14" height="14" alt="" />
           <img src="./assets/star.svg" width="14" height="14" alt="" />
@@ -24,7 +28,7 @@ export default function MovieList() {
           href="#"
         >
           <img src="./assets/tag.svg" alt="" />
-          <span>$100 | Add to Cart</span>
+          <span>${movie.price} | Add to Cart</span>
         </a>
       </figcaption>
     </figure>
