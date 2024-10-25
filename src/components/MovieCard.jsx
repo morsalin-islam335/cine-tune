@@ -5,7 +5,7 @@ import CardModals from "./CardModals";
 import Star from "./Star";
 
 import { useContext, useState } from "react";
-// import { MovieContext } from "../context";
+
 import { MovieContext } from "../context/index";
 
 export default function MovieCard({ movie }) {
@@ -56,8 +56,7 @@ export default function MovieCard({ movie }) {
             href="#"
           >
             <img src="./assets/tag.svg" alt="" />
-            {/* <span onClick={(event) => handleAddToCard(event, movie)}> */}
-            <span>
+            <span onClick={(event) => handleAddToCard(event, movie)}>
               ${movie.price} | Add to Cart
             </span>
           </a>

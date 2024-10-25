@@ -6,15 +6,15 @@ import { useContext } from "react";
 import { MovieContext } from "../context";
 
 export default function CardModals({ movie, onCloseClick }) {
-  const { cardsMovie, setCardMovie } = useContext(MovieContext);
-  console.log("context data print from card models", cardsMovie);
+  const { cardData, setCardData } = useContext(MovieContext);
+  console.log("context data print from card models", cardData);
   const handleAddToCard = (event, movie) => {
     event.preventDefault();
-    const isPreviousAdded = cardsMovie.find(
+    const isPreviousAdded = cardData.find(
       (singleMovie) => singleMovie.id === movie.id
     );
     if (!isPreviousAdded) {
-      setCardMovie([...cardsMovie, movie]);
+      setCardData([...cardData, movie]);
     } else {
       console.error("This data already added");
     }
@@ -49,8 +49,9 @@ export default function CardModals({ movie, onCloseClick }) {
                   href="#"
                 >
                   <img src={tag} alt="" />
-                  {/* <span onClick={(event) => handleAddToCard(event, movie)}> */}
-                  <span>${movie.price} | Add to Cart</span>
+                  <span onClick={(event) => handleAddToCard(event, movie)}>
+                    ${movie.price} | Add to Cart
+                  </span>
                 </a>
                 <a
                   className="border border-[#74766F] rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#6F6F6F] dark:text-gray-200 font-semibold text-sm"

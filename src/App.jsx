@@ -5,9 +5,9 @@ import Footer from "./components/footer";
 
 import { useState } from "react";
 // import { MovieContext } from "./context";m
-import {MovieContext} from "./context/index"
+import { MovieContext } from "./context/index";
 export default function App() {
-  const [cardData, setCardData] = useState([10, 20]); // initially set an empty array
+  const [cardData, setCardData] = useState([]); // initially set an empty array
   return (
     <>
       <MovieContext.Provider value={{ cardData, setCardData }}>
