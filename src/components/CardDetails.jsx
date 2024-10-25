@@ -1,4 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react";
+import { toast } from "react-toastify";
+import DeleteIcon from "../assets/delete.svg";
 import CheckoutIcon from "../assets/icons/checkout.svg";
 import { MovieContext } from "../context";
 import { getImageUrl } from "../utils/cine-utils";
@@ -10,6 +13,9 @@ export default function CardDetails({ onClose }) {
       (removeMovie) => movie.id != removeMovie.id
     );
     setCardData(newCardData);
+    toast.success(`Removed ${movie.title} from Cart !`, {
+      autoClose: 3000,
+    });
   };
 
   const allMovies = cardData.map((movie) => (
@@ -17,7 +23,9 @@ export default function CardDetails({ onClose }) {
       <div className="flex items-center gap-4">
         <img
           className="rounded overflow-hidden"
-          src="/assets/cart-item.png"
+          src={getImageUrl(movie.cover)}
+          width={"50px"}
+          height={"50px"}
           alt=""
         />
         <div>
@@ -28,7 +36,7 @@ export default function CardDetails({ onClose }) {
       </div>
       <div className="flex justify-between gap-4 items-center">
         <button className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white">
-          <img className="w-15 h-20" src={getImageUrl(movie.cover)} alt="" />
+          <img className="w-8 h-8" src={DeleteIcon} alt="" />
           <span onClick={() => handleRemove(movie)} className="max-md:hidden">
             Remove
           </span>

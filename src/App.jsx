@@ -1,28 +1,21 @@
-import Header from "./components/Header";
-import MovieList from "./components/MovieList";
-import SideBar from "./components/SideBar";
-import Footer from "./components/footer";
-
 import { useState } from "react";
-// import { MovieContext } from "./context";m
-import { MovieContext } from "./context/index";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Page from "./components/Page.jsx";
+import { MovieContext, ThemeContext } from "./context/index";
 export default function App() {
   const [cardData, setCardData] = useState([]); // initially set an empty array
+  const [darkMode, setDarkMode] = useState(true);
   return (
     <>
-      <MovieContext.Provider value={{ cardData, setCardData }}>
-        <Header />
-
-        <main>
-          <div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
-            <SideBar />
-
-            <MovieList />
-          </div>
-        </main>
-
-        <Footer />
-      </MovieContext.Provider>
+      <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+        <MovieContext.Provider value={{ cardData, setCardData }}>
+          <Page />
+          <ToastContainer />
+        </MovieContext.Provider>
+      </ThemeContext.Provider>
     </>
   );
 }

@@ -5,8 +5,10 @@ import CardModals from "./CardModals";
 import Star from "./Star";
 
 import { useContext, useState } from "react";
+import { MovieContext } from "../context";
 
-import { MovieContext } from "../context/index";
+import { toast } from "react-toastify";
+
 
 export default function MovieCard({ movie }) {
   const [showDetailsModal, setShowModals] = useState(false);
@@ -27,8 +29,16 @@ export default function MovieCard({ movie }) {
     );
     if (!isPreviousAdded) {
       setCardData([...cardData, movie]);
+      toast.success(`Added  ${movie.title} to Cart !`, {
+        autoClose: 3000,
+      });
     } else {
-      console.error("This data already added");
+      toast.error(
+        `The movie ${movie.title} has been added to the cart already`,
+        {
+          autoClose: 3000,
+        }
+      );
     }
   };
 

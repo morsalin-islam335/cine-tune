@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+
 import tag from "../assets/tag.svg";
 import { getImageUrl } from "../utils/cine-utils";
 
 import { useContext } from "react";
+import { toast } from "react-toastify";
 import { MovieContext } from "../context";
 
 export default function CardModals({ movie, onCloseClick }) {
@@ -15,8 +17,14 @@ export default function CardModals({ movie, onCloseClick }) {
     );
     if (!isPreviousAdded) {
       setCardData([...cardData, movie]);
+      toast.success(`Added  ${movie.title} to Cart !`, {
+        autoClose: 3000,
+      });
     } else {
       console.error("This data already added");
+      toast.error(`${movie.title} have already added to Cart !`, {
+        autoClose: 3000,
+      });
     }
   };
 
