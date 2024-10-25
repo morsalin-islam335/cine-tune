@@ -1,6 +1,25 @@
+/* eslint-disable react/prop-types */
 import tag from "../assets/tag.svg";
 import { getImageUrl } from "../utils/cine-utils";
+
+import { useContext } from "react";
+import { MovieContext } from "../context";
+
 export default function CardModals({ movie, onCloseClick }) {
+  const { cardsMovie, setCardMovie } = useContext(MovieContext);
+  console.log("context data print from card models", cardsMovie);
+  const handleAddToCard = (event, movie) => {
+    event.preventDefault();
+    const isPreviousAdded = cardsMovie.find(
+      (singleMovie) => singleMovie.id === movie.id
+    );
+    if (!isPreviousAdded) {
+      setCardMovie([...cardsMovie, movie]);
+    } else {
+      console.error("This data already added");
+    }
+  };
+
   return (
     <>
       <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
@@ -30,6 +49,7 @@ export default function CardModals({ movie, onCloseClick }) {
                   href="#"
                 >
                   <img src={tag} alt="" />
+                  {/* <span onClick={(event) => handleAddToCard(event, movie)}> */}
                   <span>${movie.price} | Add to Cart</span>
                 </a>
                 <a

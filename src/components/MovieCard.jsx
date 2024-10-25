@@ -4,9 +4,14 @@ import { getImageUrl } from "../utils/cine-utils";
 import CardModals from "./CardModals";
 import Star from "./Star";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+// import { MovieContext } from "../context";
+import { MovieContext } from "../context/index";
+
 export default function MovieCard({ movie }) {
   const [showDetailsModal, setShowModals] = useState(false);
+  const { cardData, setCardData } = useContext(MovieContext); // it return a tuple
+
   const handleShowModal = () => {
     setShowModals(true);
   };
@@ -14,6 +19,19 @@ export default function MovieCard({ movie }) {
   const handleClose = () => {
     setShowModals(false);
   };
+
+  const handleAddToCard = (event, movie) => {
+    event.preventDefault();
+    const isPreviousAdded = cardData.find(
+      (singleMovie) => singleMovie.id === movie.id
+    );
+    if (!isPreviousAdded) {
+      setCardData([...cardData, movie]);
+    } else {
+      console.error("This data already added");
+    }
+  };
+
   return (
     <>
       {showDetailsModal && (
@@ -38,7 +56,10 @@ export default function MovieCard({ movie }) {
             href="#"
           >
             <img src="./assets/tag.svg" alt="" />
-            <span>${movie.price} | Add to Cart</span>
+            {/* <span onClick={(event) => handleAddToCard(event, movie)}> */}
+            <span>
+              ${movie.price} | Add to Cart
+            </span>
           </a>
         </figcaption>
       </figure>
