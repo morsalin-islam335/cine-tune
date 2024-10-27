@@ -44,6 +44,7 @@ export default function CardDetails({ onClose }) {
       </div>
     </div>
   ));
+  
 
   return (
     <>

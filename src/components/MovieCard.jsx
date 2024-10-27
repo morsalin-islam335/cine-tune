@@ -9,7 +9,6 @@ import { MovieContext } from "../context";
 
 import { toast } from "react-toastify";
 
-
 export default function MovieCard({ movie }) {
   const [showDetailsModal, setShowModals] = useState(false);
   const { cardData, setCardData } = useContext(MovieContext); // it return a tuple
@@ -50,7 +49,7 @@ export default function MovieCard({ movie }) {
       <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
         <a href="#" onClick={handleShowModal}>
           <img
-            className="w-full object-cover"
+            className="w-full object-cover min-h-[250px]"
             src={getImageUrl(movie.cover)}
             alt=""
           />

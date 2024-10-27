@@ -1,24 +1,78 @@
 const data = [
+  // new data start from  here
+
   {
     id: crypto.randomUUID(),
-    cover: "once-in-ho.jpg",
-    title: "Once Upon a Time... in Hollywood",
+    cover: "the_message.jpg",
+    title: "The Message",
     description:
       "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
-    genre: "Comedy/Drama",
+    genre: "Islam/Religion",
+    rating: 5,
+    price: 160,
+  },
+  {
+    id: crypto.randomUUID(),
+    cover: "muhammad.jpg",
+    title: "Muhammand The Messenger of GOD",
+    description:
+      "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
+    genre: "Life/Religion",
+    rating: 5,
+    price: 200,
+  },
+  {
+    id: crypto.randomUUID(),
+    cover: "36Julay.jpg",
+    title: "36 Julay 2024",
+    description:
+      "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
+    genre: "History/Revolution",
+    rating: 5,
+    price: 240,
+  },
+  {
+    id: crypto.randomUUID(),
+    cover: "bilal.jpg",
+    title: "Bilal a new bread of Hero",
+    description:
+      "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
+    genre: "Religion/Dedicate",
     rating: 5,
     price: 140,
   },
   {
     id: crypto.randomUUID(),
-    cover: "marriage-strory.jpg",
-    title: "Marriage Story",
+    cover: "journeyToMakka.jpg",
+    title: "Journey to Makka",
     description:
-      "Noah Baumbach's incisive and compassionate look at a marriage breaking up and a family staying together.",
+      "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
     genre: "Comedy/Drama",
-    rating: 3,
-    price: 90,
+    rating: 5,
+    price: 130,
   },
+  {
+    id: crypto.randomUUID(),
+    cover: "roomNumber 2011.jpg",
+    title: "Room Number 2011",
+    description:
+      "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
+    genre: "Patriotism/Torture",
+    rating: 5,
+    price: 400,
+  },
+
+  // new data end from here
+  // {
+  //   id: crypto.randomUUID(),
+  //   cover: "marriage-strory.jpg",
+  //   title: "Marriage Story",
+  //   description:
+  //     "Noah Baumbach's incisive and compassionate look at a marriage breaking up and a family staying together.",
+  //   genre: "Comedy/Drama",
+  //   rating: 3,
+  //   price: 90,
+  // },
   {
     id: crypto.randomUUID(),
     cover: "pain-and-gain.jpg",
@@ -54,5 +108,3 @@ const data = [
 export function getAllMovies() {
   return data;
 }
-
-
